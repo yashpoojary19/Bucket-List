@@ -14,6 +14,7 @@
 		B6657D6B2742740600338FC8 /* Bucket_ListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6657D6A2742740600338FC8 /* Bucket_ListTests.swift */; };
 		B6657D752742740600338FC8 /* Bucket_ListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6657D742742740600338FC8 /* Bucket_ListUITests.swift */; };
 		B6657D772742740600338FC8 /* Bucket_ListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6657D762742740600338FC8 /* Bucket_ListUITestsLaunchTests.swift */; };
+		B6657D8427428E3F00338FC8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6657D8327428E3F00338FC8 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		B6657D702742740600338FC8 /* Bucket ListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bucket ListUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6657D742742740600338FC8 /* Bucket_ListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bucket_ListUITests.swift; sourceTree = "<group>"; };
 		B6657D762742740600338FC8 /* Bucket_ListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bucket_ListUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B6657D8327428E3F00338FC8 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				B6657D592742740300338FC8 /* Bucket_ListApp.swift */,
 				B6657D5B2742740300338FC8 /* ContentView.swift */,
+				B6657D8327428E3F00338FC8 /* MapView.swift */,
 				B6657D5D2742740600338FC8 /* Assets.xcassets */,
 				B6657D5F2742740600338FC8 /* Preview Content */,
 			);
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6657D5C2742740300338FC8 /* ContentView.swift in Sources */,
+				B6657D8427428E3F00338FC8 /* MapView.swift in Sources */,
 				B6657D5A2742740300338FC8 /* Bucket_ListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +426,7 @@
 				DEVELOPMENT_TEAM = 2FRR58PFB2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need to unlock your data.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -451,6 +456,7 @@
 				DEVELOPMENT_TEAM = 2FRR58PFB2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "We need to unlock your data.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
