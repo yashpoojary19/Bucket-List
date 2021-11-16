@@ -6,21 +6,22 @@
 //
 
 
-import MapKit
+
 import SwiftUI
+import MapKit
 
 
 struct ContentView: View {
     @State private var centerCoordinate = CLLocationCoordinate2D()
-    
+
     
     var body: some View {
         ZStack {
             MapView(centerCoordinate: $centerCoordinate)
                 .edgesIgnoringSafeArea(.all)
+            
             Circle()
-                .fill(Color.blue)
-                .opacity(0.3)
+                .foregroundColor(Color.blue.opacity(0.3))
                 .frame(width: 32, height: 32)
             
             VStack {
@@ -28,21 +29,26 @@ struct ContentView: View {
                 HStack {
                     Spacer()
                     Button(action: {
+                      //
                         
                     }) {
                         Image(systemName: "plus")
                     }
                     .padding()
-                    .background(Color.black.opacity(0.75))
                     .foregroundColor(.white)
-                    .font(.title)
+                    .background(Color.black.opacity(0.7))
+                    .font(.largeTitle)
                     .clipShape(Circle())
                     .padding(.trailing)
                 }
             }
+            
         }
+      
     }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
@@ -50,6 +56,81 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+
+
+
+
+
+//struct User: Identifiable, Comparable {
+//
+//
+//    var id = UUID()
+//    var firstName: String
+//    var lastName: String
+//
+//    static func < (lhs: User, rhs: User) -> Bool {
+//        lhs.firstName < rhs.firstName
+//    }
+//}
+//
+//
+//struct ContentView: View {
+//    var users = [
+//        User(firstName: "Yash", lastName: "Poojary"),
+//        User(firstName: "Khushmi", lastName: "Poojary"),
+//        User(firstName: "Wow", lastName: "YUW")
+//    ].sorted()
+//
+//
+//
+//
+//
+//
+//
+//    var body: some View {
+//        VStack {
+//            List(users) { user in
+//                Text("\(user.firstName) \(user.lastName)")
+//
+//            }
+//        }
+//    }
+//}
+
+
+// struct ContentView: View {
+//    @State private var centerCoordinate = CLLocationCoordinate2D()
+//
+//
+//    var body: some View {
+//        ZStack {
+//            MapView(centerCoordinate: $centerCoordinate)
+//                .edgesIgnoringSafeArea(.all)
+//            Circle()
+//                .fill(Color.blue)
+//                .opacity(0.3)
+//                .frame(width: 32, height: 32)
+//
+//            VStack {
+//                Spacer()
+//                HStack {
+//                    Spacer()
+//                    Button(action: {
+//
+//                    }) {
+//                        Image(systemName: "plus")
+//                    }
+//                    .padding()
+//                    .background(Color.black.opacity(0.75))
+//                    .foregroundColor(.white)
+//                    .font(.title)
+//                    .clipShape(Circle())
+//                    .padding(.trailing)
+//                }
+//            }
+//        }
+//    }
+//}
 
 
 
