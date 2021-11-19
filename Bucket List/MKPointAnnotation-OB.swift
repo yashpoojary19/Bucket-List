@@ -1,16 +1,8 @@
-//
-//  MKPointAnnotation-OB.swift
-//  Bucket List
-//
-//  Created by Yash Poojary on 18/11/21.
-//
-
 
 import MapKit
 
 
 extension MKPointAnnotation: ObservableObject {
-    
     public var wrappedTitle: String {
         get {
             title ?? "Unkown Value"
@@ -21,7 +13,7 @@ extension MKPointAnnotation: ObservableObject {
         }
     }
     
-    public var wrappedSubtitle: String {
+    public var wrappedSubTitle: String {
         get {
             subtitle ?? "Unkown Value"
         }

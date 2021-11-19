@@ -11,6 +11,10 @@
 		B636EE48274660AD00736172 /* EditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636EE47274660AD00736172 /* EditScreen.swift */; };
 		B636EE4A274664BF00736172 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636EE49274664BF00736172 /* Result.swift */; };
 		B636EE4C27466F9C00736172 /* MKPointAnnotationCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636EE4B27466F9C00736172 /* MKPointAnnotationCodable.swift */; };
+		B636EE4E2747DD0F00736172 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636EE4D2747DD0F00736172 /* CircleView.swift */; };
+		B636EE502747DD5800736172 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636EE4F2747DD5800736172 /* ButtonView.swift */; };
+		B636EE522747E5D800736172 /* UnlockButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636EE512747E5D800736172 /* UnlockButtonView.swift */; };
+		B636EE542747E6EA00736172 /* UnlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B636EE532747E6EA00736172 /* UnlockView.swift */; };
 		B6657D5A2742740300338FC8 /* Bucket_ListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6657D592742740300338FC8 /* Bucket_ListApp.swift */; };
 		B6657D5C2742740300338FC8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6657D5B2742740300338FC8 /* ContentView.swift */; };
 		B6657D5E2742740600338FC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6657D5D2742740600338FC8 /* Assets.xcassets */; };
@@ -43,6 +47,10 @@
 		B636EE47274660AD00736172 /* EditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditScreen.swift; sourceTree = "<group>"; };
 		B636EE49274664BF00736172 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		B636EE4B27466F9C00736172 /* MKPointAnnotationCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKPointAnnotationCodable.swift; sourceTree = "<group>"; };
+		B636EE4D2747DD0F00736172 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		B636EE4F2747DD5800736172 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		B636EE512747E5D800736172 /* UnlockButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockButtonView.swift; sourceTree = "<group>"; };
+		B636EE532747E6EA00736172 /* UnlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockView.swift; sourceTree = "<group>"; };
 		B6657D562742740300338FC8 /* Bucket List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bucket List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6657D592742740300338FC8 /* Bucket_ListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bucket_ListApp.swift; sourceTree = "<group>"; };
 		B6657D5B2742740300338FC8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -84,6 +92,10 @@
 		B6657D4D2742740300338FC8 = {
 			isa = PBXGroup;
 			children = (
+				B636EE512747E5D800736172 /* UnlockButtonView.swift */,
+				B636EE532747E6EA00736172 /* UnlockView.swift */,
+				B636EE4F2747DD5800736172 /* ButtonView.swift */,
+				B636EE4D2747DD0F00736172 /* CircleView.swift */,
 				B6657D582742740300338FC8 /* Bucket List */,
 				B6657D692742740600338FC8 /* Bucket ListTests */,
 				B6657D732742740600338FC8 /* Bucket ListUITests */,
@@ -107,9 +119,9 @@
 				B636EE4B27466F9C00736172 /* MKPointAnnotationCodable.swift */,
 				B636EE49274664BF00736172 /* Result.swift */,
 				B636EE4527465B4700736172 /* MKPointAnnotation-OB.swift */,
-				B636EE47274660AD00736172 /* EditScreen.swift */,
 				B6657D592742740300338FC8 /* Bucket_ListApp.swift */,
 				B6657D5B2742740300338FC8 /* ContentView.swift */,
+				B636EE47274660AD00736172 /* EditScreen.swift */,
 				B6657D8327428E3F00338FC8 /* MapView.swift */,
 				B6657D5D2742740600338FC8 /* Assets.xcassets */,
 				B6657D5F2742740600338FC8 /* Preview Content */,
@@ -272,13 +284,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B636EE4E2747DD0F00736172 /* CircleView.swift in Sources */,
 				B636EE4A274664BF00736172 /* Result.swift in Sources */,
 				B636EE4627465B4700736172 /* MKPointAnnotation-OB.swift in Sources */,
 				B636EE4C27466F9C00736172 /* MKPointAnnotationCodable.swift in Sources */,
 				B6657D5C2742740300338FC8 /* ContentView.swift in Sources */,
 				B6657D8427428E3F00338FC8 /* MapView.swift in Sources */,
+				B636EE522747E5D800736172 /* UnlockButtonView.swift in Sources */,
 				B636EE48274660AD00736172 /* EditScreen.swift in Sources */,
 				B6657D5A2742740300338FC8 /* Bucket_ListApp.swift in Sources */,
+				B636EE502747DD5800736172 /* ButtonView.swift in Sources */,
+				B636EE542747E6EA00736172 /* UnlockView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

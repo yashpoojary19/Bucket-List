@@ -1,23 +1,22 @@
-//
-//  MKPointAnnotationCodable.swift
-//  Bucket List
-//
-//  Created by Yash Poojary on 18/11/21.
-//
 
-import Foundation
+
+
+
+
 import MapKit
 
 
-class MKPointAnnotationCodable: MKPointAnnotation, Codable {
-    enum CodingKeys: CodingKey {
-        case title, subtitle, latitude, longitude
-    }
+class MkPointAnnotationCodable: MKPointAnnotation, Codable {
+    
     
     override init() {
         super.init()
     }
     
+    
+    enum CodingKeys: CodingKey {
+        case title, subtitle, latitude, longitude
+    }
     
     public required init(from decoder: Decoder) throws {
         super.init()
@@ -26,12 +25,10 @@ class MKPointAnnotationCodable: MKPointAnnotation, Codable {
         title = try container.decode(String.self, forKey: .title)
         subtitle = try container.decode(String.self, forKey: .subtitle)
         
-        
         let latitude = try container.decode(CLLocationDegrees.self, forKey: .latitude)
         let longitude = try container.decode(CLLocationDegrees.self, forKey: .longitude)
         
         coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        
     }
     
     public func encode(to encoder: Encoder) throws {
@@ -41,6 +38,5 @@ class MKPointAnnotationCodable: MKPointAnnotation, Codable {
         try container.encode(coordinate.latitude, forKey: .latitude)
         try container.encode(coordinate.longitude, forKey: .longitude)
     }
-    
-    
 }
+
