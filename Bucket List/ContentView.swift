@@ -6,48 +6,130 @@
 //
 
 
-
-import SwiftUI
 import MapKit
-
+import SwiftUI
+import LocalAuthentication
 
 struct ContentView: View {
+    
     @State private var centerCoordinate = CLLocationCoordinate2D()
-
+    @State private var locations = [MKPointAnnotationCodable]()
+    @State private var showPlaceDetails = false
+    @State private var selectedPlace: MKPointAnnotation?
+    @State private var showingEditScreen = false
+    @State private var isUnlocked = true
     
     var body: some View {
-        ZStack {
-            MapView(centerCoordinate: $centerCoordinate)
-                .edgesIgnoringSafeArea(.all)
-            
-            Circle()
-                .foregroundColor(Color.blue.opacity(0.3))
-                .frame(width: 32, height: 32)
-            
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    Button(action: {
-                      //
-                        
-                    }) {
-                        Image(systemName: "plus")
+            ZStack {
+                if isUnlocked {
+                    MapView(centerCoordinate: $centerCoordinate, annotations: locations, selectedPlace: $selectedPlace, showPlaceDetails: $showPlaceDetails)
+                        .edgesIgnoringSafeArea(.all)
+                    
+                    Circle()
+                        .fill(Color.blue.opacity(0.3))
+                        .frame(width: 32, height: 32)
+                    
+                    VStack {
+                        Spacer()
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                let newLocation = MKPointAnnotationCodable()
+                                newLocation.title = "India"
+                                newLocation.subtitle = "Woza"
+                                newLocation.coordinate = centerCoordinate
+                                locations.append(newLocation)
+                                
+                                selectedPlace = newLocation
+                                showingEditScreen = true
+                                
+                            }) {
+                                Image(systemName: "plus")
+                                    .padding()
+                                    .foregroundColor(Color.white)
+                                    .font(.title)
+                                    .background(Color.black.opacity(0.7))
+                                    .clipShape(Circle())
+                                    .padding(.trailing)
+                            }
+                           
+                        }
+                    }
+                } else {
+                    Button("Unlock") {
+                        authenticate()
                     }
                     .padding()
-                    .foregroundColor(.white)
-                    .background(Color.black.opacity(0.7))
-                    .font(.largeTitle)
-                    .clipShape(Circle())
-                    .padding(.trailing)
+                    .foregroundColor(Color.white)
+                    .background(Color.blue)
+                    .clipShape(Capsule())
+                }
+          
+        }
+            .alert(isPresented: $showPlaceDetails) {
+                Alert(title: Text(selectedPlace?.title ?? "Unkown"), message: Text(selectedPlace?.subtitle ?? "Unkown"), primaryButton: .default(Text("Okay")), secondaryButton: .default(Text("Edit")) {
+                    showingEditScreen = true
+                })
+                
+            }
+            .sheet(isPresented: $showingEditScreen, onDismiss: saveData) {
+                if selectedPlace != nil {
+                    EditScreen(placemark: selectedPlace!)
                 }
             }
-            
-        }
-      
+            .onAppear(perform: loadData)
     }
-}
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    func loadData() {
+        let fileName = getDocumentsDirectory().appendingPathComponent("SavedPlaces")
+        
+        do {
+            let data = try Data(contentsOf: fileName)
+            locations = try JSONDecoder().decode([MKPointAnnotationCodable].self, from: data)
+        } catch {
+            print("Unable to load saved data")
+        }
+    }
+    
+    func saveData() {
+        do {
+            let filename = getDocumentsDirectory().appendingPathComponent("SavedPlaces")
+            let data = try JSONEncoder().encode(locations)
+            try data.write(to: filename, options: [.atomic, .completeFileProtection])
+        } catch {
+            print("Unable to save data")
+        }
+    }
+    
+    func authenticate() {
+        let context = LAContext()
+        var error: NSError?
+        
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "We need to read the saved placemarks"
+            
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationFailure in
+                
+                DispatchQueue.main.async {
+                    if success {
+                        isUnlocked = true
+                    } else {
+                        
+                    }
+                }
+                
+            }
+        } else {
+            // no biometrics
+        }
+    }
 
+}
 
 
 struct ContentView_Previews: PreviewProvider {
